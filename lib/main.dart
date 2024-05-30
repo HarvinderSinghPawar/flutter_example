@@ -1,10 +1,10 @@
+import 'package:example_30_may_24/app/module/user/splash/binding/initial_binding.dart';
 import 'package:example_30_may_24/app/routes/app_pages.dart';
 import 'package:example_30_may_24/app/routes/app_routes.dart';
 import 'package:example_30_may_24/app_firebase_messaging_service.dart';
 import 'package:example_30_may_24/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 
 
@@ -14,8 +14,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   AppFirebaseMessagingService().initialize();
-
-
   runApp(const MyApp());
 }
 
@@ -31,8 +29,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      getPages: AppPages.appPages(),
       initialRoute: AppRoutes.splash,
-      onGenerateRoute: AppPages.appRoutes(),
+      initialBinding: InitialBinding(),
     );
   }
 }
